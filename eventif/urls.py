@@ -2,7 +2,7 @@
 URL configuration for eventif project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+    https://docs.djangoproject.com/en/5.1/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -20,7 +20,7 @@ from core.views import home
 from subscriptions.views import subscribe
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("inscricao/", subscribe),
-    path("", home),
+    path('', home),
+    path('inscricao/', subscribe),
+    path('admin/', admin.site.urls),
 ]
