@@ -4,7 +4,7 @@ from django.core import mail
 class ContactPostValid(TestCase):
     def setUp(self):
         data = dict(name="Sarah Donato",
-                    email='alternativegen@gmail.com', phone='53-12345-6789', message="teste")
+                    email='alternativegen@gmail.com', phone='53-12345-6789', message="Teste")
         self.client.post('/contact/', data)
         self.email = mail.outbox[0]
 
