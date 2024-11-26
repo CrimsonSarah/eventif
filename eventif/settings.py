@@ -23,12 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = "django-insecure-zj01yg!%mpy-^wvwv8+wkfgd5k%qkf=x!=hz=72n72$0x$9mk8"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["127.0.1", 'localhost', '.pythonanywhere.com']
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 DEFAULT_FROM_EMAIL = 'contato@eventif.com.br'
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
     'test_without_migrations',
     'core',
     'subscriptions',
+    'contact',
 ]
 
 MIDDLEWARE = [
