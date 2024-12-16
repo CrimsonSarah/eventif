@@ -15,27 +15,21 @@ def contact(request):
 def new(request):
     return render(request, 'contact/contact_form.html', {'form': ContactForm()})
 
-
 def create(request):
     form = ContactForm(request.POST)
 
     if not form.is_valid():
         return render(request, 'contact/contact_form.html', {'form': form})
 
+    contact = Contact.objects.create(**form.cleaned_data)
+
     _send_mail(
-        'contact/contact_email.txt',
-        form.cleaned_data,
-        'Novo contato.',
-        settings.DEFAULT_FROM_EMAIL,
-        form.cleaned_data['email'])
-
-    messages.success(request, 'Contato realizado com sucesso')
-    return HttpResponseRedirect('/contact/')
-
-
-
-def new(request):
-    return render(request, 'contact/contact_form.html', {'form': ContactForm()})
+    'contact/contact_email.txt',
+    {'contact': contact},
+    'Novo contato recebido!',
+    contact.email,
+    settings.DEFAULT_FROM_EMAIL)
+    return HttpResponseRedirect(r('contact:detail',contact.pk))
 
 def detail(request, pk):
     try:
@@ -44,7 +38,6 @@ def detail(request, pk):
         raise Http404
 
     return render(request, 'contact/contact_detail.html', {'contact': contact})
-
 
 def _send_mail(template_name, context, subject, from_, to):
     body = render_to_string(template_name, context)
