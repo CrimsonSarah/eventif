@@ -39,10 +39,10 @@ class ContactPostValid(TestCase):
         self.resp = self.client.post(r('contact:new'), data)
 
     def test_post(self):
-        self.assertRedirects(self.resp, r('contact:detail', 1))
+        self.assertRedirects(self.resp, r('contact:detail'))
 
     def test_send_contact_email(self):
-        self.assertEqual(1, len(mail.outbox))
+        self.assertEqual(len(mail.outbox))
 
     def test_save_contact(self):
         self.assertTrue(Contact.objects.exists())
