@@ -1,6 +1,7 @@
 from django.contrib import admin
 from contact.models import Contact
-from django import forms
+from contact.models import Contact
+
 
 class ContactModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'message',
