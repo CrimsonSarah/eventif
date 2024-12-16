@@ -35,10 +35,10 @@ class ContactPostValid(TestCase):
     def setUp(self):
         data = dict(name="Sarah Donato",
                     email='alternativegen@gmail.com.com', phone='53-12345-6789', message="teste")
-        self.resp = self.client.post('/contact/', data)
+        self.resp = self.client.post('/contact/1', data)
 
     def teste_post(self):
-        self.assertRedirects(self.resp, '/contact/')
+        self.assertRedirects(self.resp, '/contact/1')
 
     def teste_email(self):
         self.assertEqual(1, len(mail.outbox))
