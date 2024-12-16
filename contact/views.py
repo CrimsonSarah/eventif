@@ -1,11 +1,10 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, resolve_url as r
+from django.http import HttpResponseRedirect, Http404
 from contact.forms import ContactForm
 from django.core import mail
 from django.template.loader import render_to_string
-from django.contrib import messages
 from django.conf import settings
-
+from contact.models import Contact
 
 def contact(request):
     if request.method == 'POST':
