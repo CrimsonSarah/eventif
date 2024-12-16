@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.core import mail
+from django.shortcuts import resolve_url as r
 
 class ContactPostValid(TestCase):
     def setUp(self):
