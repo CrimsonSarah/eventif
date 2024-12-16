@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.core import mail
 from contact.forms import ContactForm
-
+from contact.models import Contact
+from django.shortcuts import resolve_url as r
 
 class ContactGet(TestCase):
     def setUp(self):
