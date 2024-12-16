@@ -12,8 +12,8 @@ class ContactModelAdmin(admin.ModelAdmin):
     def respondeu_contato(self, obj):
         return obj.response != None
 
-    contact_answered.short_description = 'Contato respondido'
-    contact_answered.boolean = True
+    respondeu_contato.short_description = 'Contato respondido'
+    respondeu_contato.boolean = True
 
     def campo_para_db(self, db_field, request, **kwargs):
         field = super().formfield_for_dbfield(db_field, request, **kwargs)
