@@ -38,7 +38,7 @@ class ContactPostValid(TestCase):
         self.resp = self.client.post('/contact/', data)
 
     def teste_post(self):
-        self.assertRedirects(self.resp, '/contact/')
+        self.assertRedirects(self.resp, '/contact/1')
 
     def teste_email(self):
         self.assertEqual(1, len(mail.outbox))
