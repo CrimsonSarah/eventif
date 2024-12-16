@@ -40,6 +40,6 @@ def envia_notif_email(sender, instance, **kwargs):
             instance.email 
         )
 
-def _envia_email(template_name, context, subject, from_, to):
+def _send_mail(template_name, context, subject, from_, to):
     body = render_to_string(template_name, context)
     return send_mail(subject, body, from_, [from_, to])
