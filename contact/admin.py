@@ -4,7 +4,7 @@ from django import forms
 
 class ContactModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'message',
-                    'sent_at', 'response', 'response_at', 'contact_answered')
+                    'sent_at', 'response', 'response_at', 'respondeu_contato')
     list_editable = ['response']
     date_hierarchy = 'sent_at'
     search_fields = ('name', 'email', 'phone', 'message', 'response', 'response_at', 'sent_at')
