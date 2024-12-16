@@ -5,7 +5,7 @@ class ContactPostValid(TestCase):
     def setUp(self):
         data = dict(name="Sarah Donato",
                     email='alternativegen@gmail.com', phone='53-12345-6789', message="Teste")
-        self.client.post('/contact/', data)
+        self.client.post(r('contact:new'), data)
         self.email = mail.outbox[0]
 
     def teste_assunto(self):
