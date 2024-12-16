@@ -13,6 +13,9 @@ def contact(request):
     else:
         return new(request)
 
+def new(request):
+    return render(request, 'contact/contact_form.html', {'form': ContactForm()})
+
 
 def create(request):
     form = ContactForm(request.POST)
@@ -35,6 +38,13 @@ def create(request):
 def new(request):
     return render(request, 'contact/contact_form.html', {'form': ContactForm()})
 
+def detail(request, pk):
+    try:
+        contact = Contact.objects.get(pk=pk)
+    except Contact.DoesNotExist:
+        raise Http404
+
+    return render(request, 'contact/contact_detail.html', {'contact': contact})
 
 
 def _send_mail(template_name, context, subject, from_, to):
