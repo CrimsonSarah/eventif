@@ -6,9 +6,9 @@ from django.shortcuts import resolve_url as r
 class SubscriptionDetailGet(TestCase):
     def setUp(self):
         obj = Subscription.objects.create(
-            name='Théo Ferraz',
+            name='Cleber Fonseca',
             cpf='12345678901',
-            email='theoferrazalmeida@hotmail.com',
+            email='profcleberfonseca@gmail.com',
             phone='53-91234-5678'
         )
         self.resp = self.client.get(r('subscriptions:detail', obj.pk))
@@ -25,8 +25,8 @@ class SubscriptionDetailGet(TestCase):
         self.assertIsInstance(subscription, Subscription)
 
     def test_html(self):
-        contents = ('Théo Ferraz', '12345678901',
-                    'theoferrazalmeida@hotmail.com', '53-91234-5678')
+        contents = ('Cleber Fonseca', '12345678901',
+                    'profcleberfonseca@gmail.com', '53-91234-5678')
         with self.subTest():
             for expected in contents:
                 self.assertContains(self.resp, expected)

@@ -34,8 +34,8 @@ class SubscribeGet(TestCase):
 
 class SubscribePostValid(TestCase):
     def setUp(self):
-        data = dict(name="Théo Ferraz", cpf='12345678901',
-                    email='theoferrazalmeida@hotmail.com', phone='53-12345-6789')
+        data = dict(name="Cleber Fonseca", cpf='12345678901',
+                    email='profcleberfonseca@gmail.com', phone='53-12345-6789')
         self.resp = self.client.post(r('subscriptions:new'), data)
 
     def test_post(self):

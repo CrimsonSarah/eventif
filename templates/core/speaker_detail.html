@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+  <div class="speakers content row padding-bottom-3 desktop-8 container">
+    <h2>
+      <a href="{{ speaker.website }}">{{ speaker.name }}</a>
+    </h2>
+    <img class="photo" src="{{ speaker.photo }}">
+    <p>
+      {{ speaker.description|linebreaks }}
+    </p>
+  </div>
+</section>
+{% endblock content %}
+
+<!-- https://abre.ai/hopper-site  https://abre.ai/hopper-pic Programadora e Almirante. <br/>
+      Inventora do compilador, criadora da linguagem de programação Flow-Matic serviu de base para a linguagem Cobol permitindo a popularização de aplicações comerciais -->
