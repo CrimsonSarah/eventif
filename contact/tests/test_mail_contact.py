@@ -18,7 +18,7 @@ class ContactPostValid(TestCase):
         self.assertEqual(expect, self.email.from_email)
 
     def teste_destinatario(self):
-        expect = ['contato@eventif.com.br', 'alternativegen@gmail.com']
+        expect = ['alternativegen@gmail.com', 'contato@eventif.com.br']
         self.assertEqual(expect, self.email.to)
 
     def teste_corpo(self):
